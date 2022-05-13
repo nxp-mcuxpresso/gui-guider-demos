@@ -8,7 +8,7 @@
 
 lv_ui guider_ui;
 
-void lv_user_gui_init(void)
+void gui_guider_setup(void)
 {
     setup_ui(&guider_ui);
     events_init(&guider_ui);
