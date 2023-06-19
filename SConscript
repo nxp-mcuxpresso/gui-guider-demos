@@ -4,6 +4,7 @@ from building import *
 
 cwd = GetCurrentDir()
 CPPPATH = [cwd, str(Dir('#'))]
+CPPDEFINES = ['LV_LVGL_H_INCLUDE_SIMPLE=1']
 
 include_path = [ cwd,
     os.path.join(cwd,"custom"),
@@ -22,6 +23,6 @@ if GetDepend(['PKG_USING_GUI_GUIDER_DEMO']):
     src += Glob('generated/guider_fonts/*.c')
     src += Glob('generated/images/*.c')
 
-group = DefineGroup('GUI-Guider-demo', src, depend = ['PKG_USING_GUI_GUIDER_DEMO'], CPPPATH = include_path)
+group = DefineGroup('GUI-Guider-demo', src, depend = ['PKG_USING_GUI_GUIDER_DEMO'], CPPPATH = include_path, CPPDEFINES=CPPDEFINES)
 
 Return('group')
